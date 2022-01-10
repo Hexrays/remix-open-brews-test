@@ -1,0 +1,25 @@
+.home__container {
+  padding-top: 24px;
+}
+
+.home__container main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mug {
+  font-size: 10vw;
+  justify-self: center;
+  animation: spin 1s ease-in-out infinite alternate;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
