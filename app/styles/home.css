@@ -1,8 +1,9 @@
-.home__container {
+.home {
   padding-top: 24px;
+  border: 1px solid purple;
 }
 
-.home__container main {
+.home main {
   display: flex;
   justify-content: center;
   flex-direction: column;

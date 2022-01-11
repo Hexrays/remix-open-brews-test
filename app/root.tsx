@@ -6,8 +6,8 @@ import {
   Scripts,
   ScrollRestoration,
   Form,
-  useLoaderData,
   redirect,
+  Link,
 } from "remix";
 import type { MetaFunction, LinksFunction, ActionFunction } from "remix";
 import globalStylesUrl from "~/styles/global.css";
@@ -39,10 +39,14 @@ export default function App() {
         <header className="app__header">
           <Form method="post">
             <label>
-              <span className="app__logo">🍺</span> <input name="search" />
+              <Link to="/" className="app__logo">
+                🍺
+              </Link>{" "}
+              <input name="search" />
             </label>
             <button type="submit">Find</button> <span>Route: Root</span>
           </Form>
+          <Link to="/about">About</Link>{" "}
         </header>
         <div className="app__container">
           <Outlet />

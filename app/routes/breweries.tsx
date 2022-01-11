@@ -1,26 +1,14 @@
-import {
+import type {
   MetaFunction,
   LoaderFunction,
   LinksFunction,
   ErrorBoundaryComponent,
 } from "remix";
-import {
-  useTransition,
-  useLoaderData,
-  Outlet,
-  Link,
-  useCatch,
-  json,
-} from "remix";
+import { useLoaderData, Outlet, Link, useCatch, json } from "remix";
 import type { Brewery } from "../types/breweries";
 import breweriesStylesUrl from "~/styles/breweries.css";
 
-/**
- * meta: MetaFunction
- *
- */
-
-export let meta: MetaFunction = ({ data, params, location, parentsData }) => {
+export let meta: MetaFunction = ({ data }) => {
   const query = data?.query
     ? `: ${data.query.replace("?query=", "")}`
     : " for beer";
@@ -33,17 +21,6 @@ export let meta: MetaFunction = ({ data, params, location, parentsData }) => {
 export let links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: breweriesStylesUrl }];
 };
-
-/**
- * Route based state management
- *
- * Anatomy of a REMIX route.
- */
-
-/**
- * loader: LoaderFunction
- *
- */
 
 export let loader: LoaderFunction = async ({ request }) => {
   let url = new URL(request.url);
@@ -62,30 +39,14 @@ export let loader: LoaderFunction = async ({ request }) => {
   }
 };
 
-/**
- * action: ActionFunction
- *
- * This is your API
- *
- * Something about API route
- *
- */
-
-/**
- * component
- *
- * Data returned from loader function
- * const data = useLoaderData<LoaderData>();
- */
-
 export default function Breweries() {
   const { breweries, search } =
     useLoaderData<{ breweries: Brewery[]; search: string }>();
 
   return (
-    <div className="remix__page breweries">
+    <div className="app__page breweries">
       <main>
-        <h3>Route: Breweries</h3>
+        <h3>Route: /breweries</h3>
         <ul>
           {breweries.map((brewery) => (
             <li key={brewery.id}>

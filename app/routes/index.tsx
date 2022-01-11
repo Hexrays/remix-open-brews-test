@@ -15,7 +15,7 @@ export let links: LinksFunction = () => {
 
 export default function Index() {
   return (
-    <div className="home__container">
+    <div className="home">
       <main>
         <h3>Route: Index</h3>
         <div className="mug">🍺</div>

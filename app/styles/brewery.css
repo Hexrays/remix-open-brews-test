@@ -1,8 +1,13 @@
 .brewery {
   background-color: lightskyblue;
+  border: 1px solid blue;
   margin: 16px;
 }
 
 aside.brewery {
   margin: 0 16px;
+}
+
+.brewery-index {
+  border: 1px solid lime;
 }
